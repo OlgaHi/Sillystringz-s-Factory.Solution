@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Registrar.Models;
+using FactoryManager.Models;
 
-namespace Registrar
+namespace FactoryManager
 {
   public class Startup
   {
@@ -25,7 +25,7 @@ namespace Registrar
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<NameContext>(options => options
+        .AddDbContext<FactoryManagerContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
     }
 
