@@ -2,7 +2,7 @@
 By _Olha Hizhytska_
 
 ## Description
-An MVC web application designed as a Many-to-Many database Relationship program. It will help the user to manage their employees and corresponding clients to each employee. 
+An MVC web application designed as a Many-to-Many database Relationship program. It will help the factory manager to keep track of engineers and machines they have lisence to repair.
 
 ## User Stories
 
@@ -18,22 +18,16 @@ An MVC web application designed as a Many-to-Many database Relationship program.
 
 </details>
 
-Many-to-Many database Relationship vizualization:
-
-![Image](HairSalon/wwwroot/img/one_to_many.png)
-
 This application demonstrates:
 
 - Creating and using Databases
 - Using Entity Framework
 - Using HTML Helper Methods
-- Lazy Loading
 - ViewBag
 - Using MVC with Razor
 - MVC Forms
 - Practising HTTP CRUD methods
 - RESTful routing
-- Using SQL Designer
 
 ## Setup
 
@@ -41,11 +35,11 @@ This application demonstrates:
 
 - Clone this repository to your desktop, using next command:
 
-  git clone 
+  git clone https://github.com/OlgaHi/Sillystringz-s-Factory.Solution.git
 
 - Navigate to the top level of the directory.
 
-  cd 
+  cd Sillystringz-s-Factory.Solution
 
 #### To run this application:
 
@@ -54,7 +48,8 @@ Please follow this steps:
  - Download [.NET 5 SDK (Software Development Kit)](https://https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-5.0.100-macos-x64-installer). Clicking this link will prompt a file download for your particular OS from Microsoft.
  - Open the file. Follow the installation steps.
  - Confirm the installation is successful by opening your terminal and running the command $ dotnet --version. You should see something like this in response: 5.0.100. This means .NET was successfully installed.
- - Navigate to the  
+ - Navigate to the /Factory folder
+ - Run the following command: dotnet restore
  - Run the following command: dotnet build
  - Run the following command to execute this compiled code: dotnet run
  - In browser navigate to http://localhost:5000
@@ -115,7 +110,7 @@ Follow this instructions to re-create database:
   - Run command:  ```SOURCE [FULL_PATH_TO_PROJECT]/olha_hizhytska.sql```
 
 - Then, you need to create appsettings.json
- -  Create file ```appsettings.json``` in ```/HairSalon/```.
+ -  Create file ```appsettings.json``` in ```/Factory/```.
  -  Copy into appsettings.json, replacing username and password with your sql database details.
 ```
 {
@@ -124,6 +119,14 @@ Follow this instructions to re-create database:
   }
 }
 ```
+
+Import Database Structure with Entity Framework Core
+
+ - Navigate to the /Factory directory in your terminal.
+ - To use the mirgrations folder to create the MySQL Database using Entity Framework Core run the command: dotnet ef database update 
+ - (OPTIONAL) If you need to make adjustments to the database, use the command: dotnet ef migrations add <NameOfNewMigration> 
+ - To update your database run: dotnet ef database update
+
 ## Technologies Used:
 
 * C#
