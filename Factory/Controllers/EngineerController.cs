@@ -3,6 +3,7 @@ using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Factory.Controllers
 {
@@ -46,12 +47,22 @@ namespace Factory.Controllers
     public ActionResult Edit(int id)
     {
       Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineDescription");
       return View(thisEngineer);
     }
 
     [HttpPost]
-    public ActionResult Edit(Engineer engineer)
+    public ActionResult Edit(Engineer engineer, int MachineId)
     {
+      if (MachineId != 0)
+        {
+          var joinTable = _db.EngineerMachine
+          .Any(join => join.EngineerId == engineer.EngineerId && join.MachineId == MachineId);
+          if (!joinTable)
+          {
+            _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
+          }
+        }
       _db.Entry(engineer).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
