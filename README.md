@@ -41,19 +41,6 @@ This application demonstrates:
 
   cd Sillystringz-s-Factory.Solution
 
-#### To run this application:
-
-To run this application you need to install .NET 5. 
-Please follow this steps:
- - Download [.NET 5 SDK (Software Development Kit)](https://https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-5.0.100-macos-x64-installer). Clicking this link will prompt a file download for your particular OS from Microsoft.
- - Open the file. Follow the installation steps.
- - Confirm the installation is successful by opening your terminal and running the command $ dotnet --version. You should see something like this in response: 5.0.100. This means .NET was successfully installed.
- - Navigate to the /Factory folder
- - Run the following command: dotnet restore
- - Run the following command: dotnet build
- - Run the following command to execute this compiled code: dotnet run
- - In browser navigate to http://localhost:5000
-
 ## Re-create Database
 
 This application contains Database file: olha_hizhytska.sql
@@ -104,6 +91,21 @@ Follow this instructions to re-create database:
 
 </details>
 
+#### To run this application:
+
+To run this application you need to install .NET 5. 
+Please follow this steps:
+ - Download [.NET 5 SDK (Software Development Kit)](https://https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-5.0.100-macos-x64-installer). Clicking this link will prompt a file download for your particular OS from Microsoft.
+ - Open the file. Follow the installation steps.
+ - Confirm the installation is successful by opening your terminal and running the command $ dotnet --version. You should see something like this in response: 5.0.100. This means .NET was successfully installed.
+ - Navigate to the /Factory folder
+ - Run the following command: dotnet restore
+ - Run the following command: dotnet build
+ - Run the following command to execute this compiled code: dotnet run
+ - In browser navigate to http://localhost:5000
+
+
+
 - To start using SQL:
   - Open terminal and run this command: ```mysql -u[UserName] -p[Password]```.
 - To re-create database:
@@ -124,7 +126,7 @@ Import Database Structure with Entity Framework Core
 
  - Navigate to the /Factory directory in your terminal.
  - To use the mirgrations folder to create the MySQL Database using Entity Framework Core run the command: dotnet ef database update 
- - (OPTIONAL) If you need to make adjustments to the database, use the command: dotnet ef migrations add <NameOfNewMigration> 
+ - (OPTIONAL) If you need to make adjustments to the database, use the command: dotnet ef migrations add [NameOfNewMigration] 
  - To update your database run: dotnet ef database update
 
 ## Technologies Used:
@@ -132,7 +134,7 @@ Import Database Structure with Entity Framework Core
 * C#
 * .NET 5
 * ASP.NET Core MVC
-* Entity
+* Entity Framework Core
 * SQL
 * MySQL Workbench
 * HTTP
